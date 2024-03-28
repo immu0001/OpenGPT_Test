@@ -63,3 +63,8 @@ b'{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJteXVzZXJuYW1l
 shell
 b'{"message":"Invalid username or password"}'
 status_code=404
+
+
+## Setup the Mongo DB Database by pulling image from DockerHub:
+
+DockerHub Mongodb:
