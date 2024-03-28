@@ -9,7 +9,7 @@ from langgraph.checkpoint import BaseCheckpointSaver
 from langgraph.graph import END
 from langgraph.graph.message import MessageGraph
 
-from app.message_types import LiberalFunctionMessage
+from message_types import LiberalFunctionMessage
 
 search_prompt = PromptTemplate.from_template(
     """Given the conversation below, come up with a search query to look up.

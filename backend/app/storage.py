@@ -3,10 +3,10 @@ from typing import List, Optional, Sequence
 
 from langchain_core.messages import AnyMessage
 
-from app.agent import AgentType, get_agent_executor
-from app.lifespan import get_pg_pool
-from app.schema import Assistant, Thread
-from app.stream import map_chunk_to_msg
+from agent import AgentType, get_agent_executor
+from lifespan import get_pg_pool
+from schema import Assistant, Thread
+from stream import map_chunk_to_msg
 
 
 async def list_assistants(user_id: str) -> List[Assistant]:

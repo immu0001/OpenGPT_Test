@@ -6,7 +6,7 @@ import orjson
 from fastapi import FastAPI, Form, UploadFile
 from fastapi.staticfiles import StaticFiles
 
-from app.api import router as api_router
+from api import router as api_router
 from app.lifespan import lifespan
 from app.upload import ingest_runnable
 

@@ -18,4 +18,4 @@ COPY . .
 EXPOSE 5173
 
 # Command to start the frontend
-CMD ["yarn", "dev"]
+CMD ["npm", "run", "dev"]

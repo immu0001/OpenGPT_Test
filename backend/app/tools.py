@@ -24,7 +24,7 @@ from langchain_community.utilities.tavily_search import TavilySearchAPIWrapper
 from langchain_robocorp import ActionServerToolkit
 from typing_extensions import TypedDict
 
-from app.upload import vstore
+from upload import vstore
 
 
 class DDGInput(BaseModel):

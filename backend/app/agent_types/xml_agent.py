@@ -12,8 +12,8 @@ from langgraph.graph import END
 from langgraph.graph.message import MessageGraph
 from langgraph.prebuilt import ToolExecutor, ToolInvocation
 
-from app.agent_types.prompts import xml_template
-from app.message_types import LiberalFunctionMessage
+from agent_types.prompts import xml_template
+from message_types import LiberalFunctionMessage
 
 
 def _collapse_messages(messages):

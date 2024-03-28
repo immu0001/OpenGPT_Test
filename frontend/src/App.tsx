@@ -11,6 +11,7 @@ import { useConfigList } from "./hooks/useConfigList";
 import { Config } from "./components/Config";
 import { MessageWithFiles } from "./utils/formTypes.ts";
 import { TYPE_NAME } from "./constants.ts";
+import LoginModal from "./components/LoginModal";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -20,6 +21,9 @@ function App() {
   const { startStream, stopStream, stream } = useStreamState();
   const [isDocumentRetrievalActive, setIsDocumentRetrievalActive] =
     useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
 
   useEffect(() => {
     let configurable = null;
@@ -98,6 +102,12 @@ function App() {
     [createChat, startTurn, currentConfig],
   );
 
+  const handleLogin = (userData) => {
+    // Perform any actions after successful login, such as setting user data in state
+    setIsLoggedIn(true);
+    // You can also store user data in localStorage or sessionStorage
+  };
+
   const selectChat = useCallback(
     async (id: string | null) => {
       if (currentChat) {
@@ -157,6 +167,11 @@ function App() {
   );
 
   return (
+    <div>
+      {/* Render LoginModal only if the user is not logged in */}
+      {!isLoggedIn && <LoginModal onLogin={handleLogin} />}
+      {/* Render other components only if the user is logged in */}
+      {isLoggedIn && (
     <Layout
       subtitle={
         currentChatConfig ? (
@@ -190,7 +205,9 @@ function App() {
     >
       {configSchema ? content : null}
     </Layout>
-  );
-}
+      )}
+      </div>
+    );
+};
 
 export default App;

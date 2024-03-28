@@ -9,7 +9,7 @@ from langgraph.graph import END
 from langgraph.graph.message import MessageGraph
 from langgraph.prebuilt import ToolExecutor, ToolInvocation
 
-from app.message_types import LiberalFunctionMessage
+from message_types import LiberalFunctionMessage
 
 
 def get_google_agent_executor(

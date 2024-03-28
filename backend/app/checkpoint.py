@@ -6,7 +6,7 @@ from langchain_core.runnables import ConfigurableFieldSpec, RunnableConfig
 from langgraph.checkpoint import BaseCheckpointSaver
 from langgraph.checkpoint.base import Checkpoint, CheckpointTuple, CheckpointThreadTs
 
-from app.lifespan import get_pg_pool
+from lifespan import get_pg_pool
 
 
 class PostgresCheckpoint(BaseCheckpointSaver):
@@ -109,8 +109,8 @@ class PostgresCheckpoint(BaseCheckpointSaver):
             await conn.execute(
                 """
                 INSERT INTO checkpoints (thread_id, thread_ts, parent_ts, checkpoint)
-                VALUES ($1, $2, $3, $4) 
-                ON CONFLICT (thread_id, thread_ts) 
+                VALUES ($1, $2, $3, $4)
+                ON CONFLICT (thread_id, thread_ts)
                 DO UPDATE SET checkpoint = EXCLUDED.checkpoint;""",
                 thread_id,
                 datetime.fromisoformat(checkpoint["ts"]),

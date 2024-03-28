@@ -22,8 +22,8 @@ from langchain_core.runnables import (
 from langchain_core.vectorstores import VectorStore
 from langchain_openai import OpenAIEmbeddings
 
-from app.ingest import ingest_blob
-from app.parsing import MIMETYPE_BASED_PARSER
+from ingest import ingest_blob
+from parsing import MIMETYPE_BASED_PARSER
 
 
 def _guess_mimetype(file_bytes: bytes) -> str:
@@ -62,7 +62,7 @@ class IngestRunnable(RunnableSerializable[BinaryIO, List[str]]):
     assistant_id: Optional[str]
     thread_id: Optional[str]
     """Ingested documents will be associated with assistant_id or thread_id.
-    
+
     ID is used as the namespace, and is filtered on at query time.
     """
 
@@ -110,11 +110,11 @@ class IngestRunnable(RunnableSerializable[BinaryIO, List[str]]):
 
 PG_CONNECTION_STRING = PGVector.connection_string_from_db_params(
     driver="psycopg2",
-    host=os.environ["POSTGRES_HOST"],
-    port=int(os.environ["POSTGRES_PORT"]),
-    database=os.environ["POSTGRES_DB"],
-    user=os.environ["POSTGRES_USER"],
-    password=os.environ["POSTGRES_PASSWORD"],
+    host="localhost",
+    port=5432,
+    database="your_database_name",
+    user="your_username",
+    password="your_password",
 )
 vstore = PGVector(
     connection_string=PG_CONNECTION_STRING,

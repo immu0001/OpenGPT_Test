@@ -9,7 +9,7 @@ from langgraph.graph import END
 from langgraph.graph.message import MessageGraph
 from langgraph.prebuilt import ToolExecutor, ToolInvocation
 
-from app.message_types import LiberalToolMessage
+from message_types import LiberalToolMessage
 
 
 def get_openai_agent_executor(
