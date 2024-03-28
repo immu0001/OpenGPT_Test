@@ -67,4 +67,11 @@ status_code=404
 
 ## Setup the Mongo DB Database by pulling image from DockerHub:
 
-DockerHub Mongodb:
+*For ARM64 Architecture Machine:
+DockerHub Mongodb: https://hub.docker.com/r/arm64v8/mongo/
+
+
+#### How to use this image
+* Start a mongodb server instance
+
+$ docker run --name opengpt-auth-mongo -d mongodb:latest
