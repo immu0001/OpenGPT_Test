@@ -6,7 +6,7 @@ const LoginModal = ({ onLogin }) => {
 
   const handleLogin = () => {
     // Make API call to backend with username and password
-    fetch("/api/login", {
+    fetch("/auth/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {
